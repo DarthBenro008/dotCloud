@@ -43,5 +43,8 @@
       "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
       "git add"
     ]
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }
