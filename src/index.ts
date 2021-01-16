@@ -1,13 +1,30 @@
 import { AxiosDataResponse } from "axios";
-import DotCloud from "./cloud";
+import DotCloudRepository from "./cloud";
 
-const repository: DotCloud = new DotCloud();
-const dotCloud = async (
-  key: string,
-  projectToken: string
-): AxiosDataResponse => {
-  const response = await repository.getKey(key, projectToken);
-  return response;
+class DotCloud {
+  private repository: DotCloudRepository;
+
+  private projectToken: string;
+
+  constructor(projectToken: string, url?: string) {
+    this.repository = new DotCloudRepository(url);
+    this.projectToken = projectToken;
+  }
+
+  fetchKey = async (key: string): AxiosDataResponse => {
+    const response = await this.repository.getKey(key, this.projectToken);
+    return response.data.value;
+  };
+
+  fetchAllKeys = async (): AxiosDataResponse => {
+    const response = await this.repository.getAllKeys(this.projectToken);
+    return response.data.keys;
+  };
+}
+
+const init = (projectToken: string, url?: string): DotCloud => {
+  const dotCloudInit = new DotCloud(projectToken, url);
+  return dotCloudInit;
 };
 
-export default dotCloud;
+export default init;

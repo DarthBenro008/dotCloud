@@ -13,7 +13,7 @@ interface KeyResponse {
   data: KeyData;
 }
 
-class DotCloud extends RequestClient {
+class DotCloudRepository extends RequestClient {
   public constructor(url = "http://localhost:8000") {
     super(url);
   }
@@ -23,16 +23,21 @@ class DotCloud extends RequestClient {
     projectToken: string
   ): AxiosDataResponse => {
     const response = await this.instance
-      .get<KeyResponse>(`/keys/?keyId=${key}&token=${projectToken}`)
+      .get<KeyResponse>(`/keys/?keyName=${key}&token=${projectToken}`)
       .catch((err) => {
         console.log(`Cannot reach servers due to ${err}`);
       });
     return response;
   };
 
-  public getAllKeys = (projectToken: string) => {
-    this.instance.get<KeyResponse>(`/keys/all?token=${projectToken}`);
+  public getAllKeys = async (projectToken: string): AxiosDataResponse => {
+    const response = await this.instance
+      .get<KeyResponse>(`/keys/all?token=${projectToken}`)
+      .catch((err) => {
+        console.log(`Cannot reach server due to ${err}`);
+      });
+    return response;
   };
 }
 
-export default DotCloud;
+export default DotCloudRepository;
