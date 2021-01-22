@@ -11,13 +11,17 @@
     "prepare": "npm run build",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DarthBenro008/dotCloud.git"
+  },
   "keywords": [
     "cli"
   ],
   "files": [
     "lib/**/*"
   ],
-  "author": "Hemanth Krishna",
+  "author": "Hemanth Krishna <hemanth@benro.tech> (https://github.com/DarthBenro008)",
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.12.0",
