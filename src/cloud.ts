@@ -14,25 +14,33 @@ interface KeyResponse {
 }
 
 class DotCloudRepository extends RequestClient {
-  public constructor(url = "http://localhost:8000") {
+  public constructor(url = "http://dotcloud.azurewebsites.net/") {
     super(url);
   }
 
   public getKey = async (
     key: string,
-    projectToken: string
+    projectToken: string,
+    projectName: string
   ): AxiosDataResponse => {
     const response = await this.instance
-      .get<KeyResponse>(`/keys/?keyName=${key}&token=${projectToken}`)
+      .get<KeyResponse>(
+        `/keys/?keyName=${key}&token=${projectToken}&projectName=${projectName}`
+      )
       .catch((err) => {
         console.log(`Cannot reach servers due to ${err}`);
       });
     return response;
   };
 
-  public getAllKeys = async (projectToken: string): AxiosDataResponse => {
+  public getAllKeys = async (
+    projectToken: string,
+    projectName: string
+  ): AxiosDataResponse => {
     const response = await this.instance
-      .get<KeyResponse>(`/keys/all?token=${projectToken}`)
+      .get<KeyResponse>(
+        `/keys/all?token=${projectToken}&projectName=${projectName}`
+      )
       .catch((err) => {
         console.log(`Cannot reach server due to ${err}`);
       });

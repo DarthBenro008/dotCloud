@@ -2,7 +2,8 @@
   "name": "dotcloud",
   "version": "1.0.0",
   "description": "A simple and safe replacement to .env files",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -39,7 +40,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.ts": [
       "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
       "git add"
     ]
