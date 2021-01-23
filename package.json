@@ -16,7 +16,10 @@
     "url": "https://github.com/DarthBenro008/dotCloud.git"
   },
   "keywords": [
-    "cli"
+    "envvars",
+    ".env",
+    "dotEnv",
+    "cloud"
   ],
   "files": [
     "lib/**/*"

@@ -14,7 +14,7 @@ interface KeyResponse {
 }
 
 class DotCloudRepository extends RequestClient {
-  public constructor(url = "http://dotcloud.azurewebsites.net/") {
+  public constructor(url = "https://dotcloud.benro/") {
     super(url);
   }
 
