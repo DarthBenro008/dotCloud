@@ -1,6 +1,6 @@
 {
   "name": "dotcloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and safe replacement to .env files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
