@@ -24,7 +24,7 @@
   "files": [
     "lib/**/*"
   ],
-  "author": "Hemanth Krishna <hemanth@benro.tech> (https://github.com/DarthBenro008)",
+  "author": "Hemanth Krishna <hkpdev008@outlook.com> (https://github.com/DarthBenro008)",
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.12.0",
